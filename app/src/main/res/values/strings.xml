@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">fiscaliza</string>
+    <string-array name="problemas">
+        <item>Buraco no asfalto</item>
+        <item>Problemas na parada de ônibus</item>
+        <item>Falta de acessibilidade</item>
+        <item>Semáforo com defeito</item>
+    </string-array>
 </resources>
