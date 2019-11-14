@@ -6,4 +6,5 @@
         <item>Falta de acessibilidade</item>
         <item>Semáforo com defeito</item>
     </string-array>
+    <string name="title_activity_mapa">Map</string>
 </resources>

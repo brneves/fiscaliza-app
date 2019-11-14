@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class CadastroOcorrencia extends AppCompatActivity {
+public class CadastroOcorrenciaActivity extends AppCompatActivity {
 
     private EditText latitude;
     private EditText longitude;
