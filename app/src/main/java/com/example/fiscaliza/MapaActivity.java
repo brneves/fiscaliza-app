@@ -61,6 +61,22 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.buraco))
         );
 
+        LatLng p3 = new LatLng(-2.540146, -44.209190);
+        mMap.addMarker(
+                new MarkerOptions()
+                        .position(p3)
+                        .title("Sem parada de ônibus")
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.onibus))
+        );
+
+        LatLng p4 = new LatLng(-2.516601, -44.269819);
+        mMap.addMarker(
+                new MarkerOptions()
+                        .position(p4)
+                        .title("Desnível na ponte")
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.buraco))
+        );
+
 
     }
 }
