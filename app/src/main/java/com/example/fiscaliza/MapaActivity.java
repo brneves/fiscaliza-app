@@ -2,8 +2,12 @@ package com.example.fiscaliza;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.example.fiscaliza.model.Ocorrencia;
+import com.example.fiscaliza.service.HTTPService;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -11,6 +15,15 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.ExecutionException;
 
 public class MapaActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -24,6 +37,7 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
     /**
@@ -39,7 +53,7 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+        //Centraliza o mapa em São Luís
         LatLng saoLuis = new LatLng(-2.5522755, -44.2434229);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(saoLuis));
 
