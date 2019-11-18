@@ -17,8 +17,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    //Um Intent é um objeto que fornece vínculos de tempo de execução entre componentes separados, como duas atividades. O Intent representa uma “intenção de fazer algo” do aplicativo. Você pode usar intents para uma ampla variedade de tarefas, mas, nesta lição, o intent iniciará outra atividade.
-
     /**
      * Ao clicar no botão cadastro, chama a Activity com o formulário de cadastro
      * @param view
@@ -37,4 +35,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void addOcorrencia(View view) {
+        Intent intent = new Intent(this, CadastroOcorrenciaActivity.class);
+        startActivity(intent);
+    }
 }

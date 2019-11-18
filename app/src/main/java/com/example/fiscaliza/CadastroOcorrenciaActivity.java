@@ -2,54 +2,79 @@ package com.example.fiscaliza;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.fiscaliza.dao.OcorrenciaDao;
+import com.example.fiscaliza.model.Ocorrencia;
+
+import java.util.Date;
 
 public class CadastroOcorrenciaActivity extends AppCompatActivity {
 
-    private EditText latitude;
-    private EditText longitude;
-    private EditText problema;
-    private EditText descricao;
-    private Button btnLimpar, btnEnviar;
+    private EditText campoLatitude;
+    private EditText campoLongitude;
+    private Spinner campoProblema;
+    private EditText campoDescricao;
+    private Date dataCadastro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_ocorrencia);
-
-        latitude= (EditText) findViewById(R.id.edtNome);
     }
 
-    /**
-     * Limpa os dados preenchidos no formulário
-     * @param view
-     */
-    public void limparDados(View view){
-        latitude.setText("");
-        longitude.setText("");
-        descricao.setText("");
-    }
-
-    /**
-     * Chama o Toast para exibir a mensagem de cadastro
-     * @param view
-     */
     public void cadastrar(View view){
-        alert("Cadastro realizado com sucesso");
+
+        final OcorrenciaDao dao = new OcorrenciaDao();
+
+        campoLatitude = (EditText) findViewById(R.id.edtLatitude);
+        campoLongitude = (EditText) findViewById(R.id.edtLongitude);
+        campoProblema = (Spinner) findViewById(R.id.problema);
+        campoDescricao = (EditText) findViewById(R.id.edtDescricao);
+
+        String latitude = campoLatitude.getText().toString();
+        String longitude = campoLongitude.getText().toString();
+        String problema = campoProblema.getSelectedItem().toString();
+        String descricao = campoDescricao.getText().toString();
+
+        Ocorrencia ocorrencia = new Ocorrencia(latitude, longitude, problema, descricao);
+
+        Toast.makeText(CadastroOcorrenciaActivity.this, "Latitude: " + ocorrencia.getLatitude() + "\nLongitude: " + ocorrencia.getLongitude() + "\nProblema: " + ocorrencia.getProblema() + "\nDescrição: " + ocorrencia.getDescricao(), Toast.LENGTH_SHORT).show();
+
+        dao.salvar(ocorrencia);
+
+        Intent intent = new Intent(this, ListaOcorrenciasActivity.class);
+        startActivity(intent);
+
+//        finish();
+
     }
 
-    /**
-     * Exibe o Toast na tela
-     * @param s
+    /*
+    salvar.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String latitude = campoLatitude.getText().toString();
+            String longitude = campoLongitude.getText().toString();
+            String problema = campoProblema.getSelectedItem().toString();
+            String descricao = campoDescricao.getText().toString();
+
+            Ocorrencia ocorrencia = new Ocorrencia(latitude, longitude, problema, descricao);
+
+            Toast.makeText(CadastroOcorrenciaActivity.this, "Latitude: " + ocorrencia.getLatitude() + "\n" + "Longitude: " + ocorrencia.getLongitude() + "\nProblema: " + ocorrencia.getProblema() + "\nDescrição: " + ocorrencia.getDescricao(), Toast.LENGTH_LONG).show();
+
+            dao.salvar(ocorrencia);
+
+            finish();
+
+        }
+    });
      */
-    public void alert(String s){
-        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
-        btnEnviar.setEnabled(false);
-        btnLimpar.setEnabled(true);
-    }
 
 }
