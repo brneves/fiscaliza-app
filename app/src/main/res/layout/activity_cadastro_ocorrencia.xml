@@ -96,16 +96,6 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnLimpar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#FF8C00"
-                android:onClick="limparDados"
-                android:text="LIMPAR"
-                android:textColor="#000000" />
-
-            <Button
                 android:id="@+id/btnEnviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

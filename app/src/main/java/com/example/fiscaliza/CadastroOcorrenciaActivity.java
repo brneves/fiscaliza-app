@@ -56,25 +56,4 @@ public class CadastroOcorrenciaActivity extends AppCompatActivity {
 
     }
 
-    /*
-    salvar.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            String latitude = campoLatitude.getText().toString();
-            String longitude = campoLongitude.getText().toString();
-            String problema = campoProblema.getSelectedItem().toString();
-            String descricao = campoDescricao.getText().toString();
-
-            Ocorrencia ocorrencia = new Ocorrencia(latitude, longitude, problema, descricao);
-
-            Toast.makeText(CadastroOcorrenciaActivity.this, "Latitude: " + ocorrencia.getLatitude() + "\n" + "Longitude: " + ocorrencia.getLongitude() + "\nProblema: " + ocorrencia.getProblema() + "\nDescrição: " + ocorrencia.getDescricao(), Toast.LENGTH_LONG).show();
-
-            dao.salvar(ocorrencia);
-
-            finish();
-
-        }
-    });
-     */
-
 }

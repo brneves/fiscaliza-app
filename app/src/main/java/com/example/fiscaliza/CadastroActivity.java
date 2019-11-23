@@ -50,7 +50,7 @@ public class CadastroActivity extends AppCompatActivity {
      */
     public void alert(String s){
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, MapaActivity.class);
+        Intent intent = new Intent(this, CadastroOcorrenciaActivity.class);
         startActivity(intent);
     }
 
